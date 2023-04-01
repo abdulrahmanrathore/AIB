@@ -1,0 +1,26 @@
+.navbar{
+    font-family: "Josefin Sans", sans-serif;
+}
+
+ul > .nav-item{
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: large;
+}
+
+.navbar-collapse{
+    margin-left: 20%;
+}
+
+.searchbar{
+    margin-right: 35%;
+}
+
+/* .searchbar > .input-group > input.someInput{
+    flex: 0 1 100px;
+} */
+
+.nav-link{
+    color: skyblue;
+}
+

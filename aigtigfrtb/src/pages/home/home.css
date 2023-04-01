@@ -1,0 +1,21 @@
+.home{
+    display: flex;
+}
+
+.sidebar{
+    position: sticky;
+    top: 10%;
+}
+
+/* @media only screen and (min-width: 390px) {
+    .sidebar{
+        position: absolute;
+        left: auto;
+        right: auto;
+    }
+}
+/* @media only screen and (min-width: 500px) {
+    .sidebar{
+        float: inline-end;
+    }
+} */

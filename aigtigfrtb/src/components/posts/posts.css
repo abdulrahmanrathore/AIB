@@ -1,0 +1,11 @@
+.posts{
+    flex: 9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.posts > .card{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
