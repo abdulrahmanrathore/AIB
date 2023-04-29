@@ -1,0 +1,34 @@
+.subcard {
+    height: 0%;
+    transition: height 0.5s ease-in-out;
+}
+
+.card:hover .subcard {
+    height: 60%;
+}
+
+.subcard .card-body {
+    border-radius: 1rem;
+}
+
+.subcard .card-body h5, .subcard .card-body p {
+    color: white;
+}
+
+.subcard.bg-black .card-body {
+    background-color: black;
+}
+
+.c_con{
+    width: 25px; 
+    height: 25px;
+}
+
+.con{
+    font-size: 18px;
+}
+
+.download-icon {
+    width: 20px;
+    height: 20px;
+}

@@ -33,7 +33,7 @@ export default function Home() {
               <Posts posts={posts} />
             </div>
           </div>
-          <div className="col-md-4 me-0"><Sidebar className="sidebar" /></div>
+          <div className="col-md-4 me-0 p-5"><Sidebar className="sidebar" /></div>
         </div>
     </>
   )

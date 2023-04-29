@@ -47,7 +47,7 @@ export default function Settings() {
     <div className="row me-0">
       <div className="col-md-8">
         <div className="container m-3 pb-3">
-          <div className="settings">
+          <div className="settings p-4">
             <div className="settingsWrapper">
               <div className="settingsTitle">
                 <span className="settingsTitleUpdate">Update Your Account</span>
@@ -90,7 +90,7 @@ export default function Settings() {
           </div>
         </div>
       </div>
-      <div className="col-md-4 me-0"><Sidebar className="sidebar" /></div>
+      <div className="col-md-4 me-0 p-5"><Sidebar className="sidebar" /></div>
     </div>
     </>
   )

@@ -4,6 +4,7 @@
   
 .writeImg {
     margin-left: 150px;
+    margin-bottom: 20px;
     width: 70vw;
     height: 250px;
     border-radius: 10px;
@@ -16,6 +17,7 @@
   
 .writeFormGroup {
     margin-left: 150px;
+    margin-top: 35px;
     display: flex;
     align-items: center;
 }
@@ -70,3 +72,4 @@
     display: flex;
     align-items: center;
 }
+

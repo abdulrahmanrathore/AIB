@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(249, 251, 252);
+}
+.heading_section{
+    margin-top: 5%;
+    line-height: 1rem;
+}
+
+.form_section{
+    margin-top: 5%;
+
+}
+
+.share_section{
+    margin-top: 3%;
+    line-height: 1rem;
+    margin-bottom: 3%;
+}
+
+.c_img{
+    padding: 4px;
+    border-radius: 15px;
+    /* border: 2px solid red;  */
+}
+
+.c_img img{
+    border-radius: 15px;
+}
+
+
+.pic_img{
+    width: 200px;
+    height: 200px;
+}

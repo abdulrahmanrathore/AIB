@@ -25,13 +25,13 @@ export default function TopBar(){
                         <Link to="/" className="nav-link active" aria-current="page">HOME</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">ABOUT</Link>
+                        <Link to="/about-us" className="nav-link">ABOUT</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">COMMUNITY</Link>
+                        <Link to="/community" className="nav-link">COMMUNITY</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">CONTACT</Link>
+                        <Link to="/contact" className="nav-link">CONTACT</Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/write" className="nav-link">WRITE</Link>
@@ -39,21 +39,6 @@ export default function TopBar(){
                 </ul>
             </div>
             <div className="search d-flex">
-                <div className="searchbar">
-                    <form className="d-flex input-group w-auto">
-                    <input
-                    type="search"
-                    class="form-control someInput"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                    size="50"
-                    />
-                    <span class="input-group-text" id="search-addon">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    </form>
-                </div>
                 {user ? (
                 <div className="dropdown">
                     <span className="dropdown-toggle d-flex align-items-center hidden-arrow" 

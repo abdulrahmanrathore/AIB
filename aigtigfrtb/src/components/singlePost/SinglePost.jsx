@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
 
-export default function SinglePost() {
+export default function SinglePost(props) {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
@@ -15,6 +15,13 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [file, setFile] = useState(null);
+
+
+  const editorConfig = {
+    height: '500px',
+    width: '1079px', 
+  };
 
   useEffect(() => {
     const getPost = async () => {
@@ -26,6 +33,10 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
+  useEffect(() => {
+    props.onDataReceived(updateMode);
+  }, [updateMode, props]);
+
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {
@@ -36,23 +47,47 @@ export default function SinglePost() {
   };
 
   const handleUpdate = async () => {
+    const updatedPost = {
+      username: user.username,
+      title,
+      desc,
+    }
+    if (file) {
+      const data =new FormData();
+      const filename = Date.now() + file.name;
+      data.append("name", filename);
+      data.append("file", file);
+      updatedPost.photo = filename;
+      try {
+        await axios.post("/upload", data);
+      } catch (err) {}
+    }
     try {
-      await axios.put(`/posts/${post._id}`, {
-        username: user.username,
-        title,
-        desc,
-      });
+      await axios.put(`/posts/${post._id}`, updatedPost);
       setUpdateMode(false)
-    } catch (err) {}
+    } catch (err) {};
+    
   };
 
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        {post.photo && (
+        {updateMode ? (file && (
+        <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
+      )):(post.photo && (
           <img src={PF + post.photo} alt="" className="singlePostImg" />
-        )}
+        ))}
         {updateMode ? (
+           <>
+         <label className="label" htmlFor="fileInput">
+           <i className="writeIcon fas fa-plus"></i>
+         </label>
+         <input
+           type="file"
+           id="fileInput"
+           style={{ display: "none" }}
+           onChange={(e) => setFile(e.target.files[0])}
+         />
           <input
             type="text"
             value={title}
@@ -60,10 +95,11 @@ export default function SinglePost() {
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
           />
+           </>
         ) : (
           <h1 className="singlePostTitle">
             {title}
-            {post.username === user?.username && (
+            { post.username === user?.username && (
               <div className="singlePostEdit">
                 <i
                   className="singlePostIcon far fa-edit"
@@ -90,7 +126,7 @@ export default function SinglePost() {
         </div>
         {updateMode ? (
           <div className="writeFormGroup">
-            <JoditEditor value={desc}  onChange={desc=>setDesc(desc)} />
+            <JoditEditor value={desc} config={editorConfig}  onChange={desc=>setDesc(desc)} />
           </div>
         ) : (
             <div className="singlePostDesc" dangerouslySetInnerHTML={{__html: post.desc} } />

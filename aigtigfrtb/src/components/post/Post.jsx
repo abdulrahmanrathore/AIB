@@ -15,13 +15,12 @@ export default function Post({post}) {
       )}
       <div className="card-body text-center">
         <div className="postCats">
-          {post.categories.map((c) => (
+          
           <span className="postCat">
             <span className="link">
-              {c.name}
+              {post.categories}
             </span>
           </span> 
-          ))}
         </div>
         <Link to={`/post/${post._id}`} className="card-title text-dark link">
           <h5>{post.title}</h5>

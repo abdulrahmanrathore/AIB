@@ -1,0 +1,65 @@
+.section {
+    background: linear-gradient(90deg, #a7c3d4, #3e1da2); /* Skyblue */
+}
+
+.container {
+    margin-top: 50px;
+    max-width: 1100px;
+  }
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #212529; /* Black */
+}
+.contact-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.contact-info a {
+    color: #212529; /* Black */
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    transition: color 0.2s ease-in-out;
+}
+.contact-info a:hover {
+    color: #0d6efd; /* Primary */
+}
+.contact-info a i {
+    margin-right: 10px;
+}
+.contact{
+      display: flex;}
+.contact-form {
+    background-color: #ffffff; /* White */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin-left: 100px;
+}
+.form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid #212529; /* Black */
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease-in-out;
+}
+.form-control:focus {
+    outline: none;
+    border-color: #0d6efd; /* Primary */
+}
+.submit-btn {
+    background-color: #0d6efd; /* Primary */
+    border-radius: 30px;
+    border: none;
+    color: #ffffff; /* White */
+    font-weight: bold;
+    padding: 15px 30px;
+    transition: background-color 0.2s ease-in-out;
+}
+.submit-btn:hover {
+    background-color: #0b5ed7; /* Darker Primary */
+}

@@ -9,6 +9,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyProfile from "./pages/myprofile/MyProfile";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+// import Community from "./pages/Community";
+import CreatePost from "./pages/CreatePost";
+import Community from "./pages/Home";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+
 
 
 function App() {
@@ -22,6 +28,11 @@ function App() {
           <Route path="register" element={user ? <Home /> : <Register />} />
           <Route path="login" element={user ? <Home /> : <Login />} />
             
+          <Route path="about-us" element={<About />} />
+          <Route path="community" element={<Community />} />
+          <Route path="create" element={<CreatePost />} />
+          <Route path="contact" element={<Contact />} />
+
           <Route path="write" element={user ? <Write /> : <Register />} />
   
           <Route path="myprofile" element={user ? <MyProfile /> : <Register />} />

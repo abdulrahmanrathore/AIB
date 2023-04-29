@@ -25,6 +25,7 @@
   
 .singlePostTitleInput {
     margin: 10px;
+    margin-left: 300px;
     font-family: "Lora", serif;
     font-size: 28px;
     text-align: center;
@@ -96,4 +97,34 @@
     cursor: pointer;
     align-self: flex-end;
     margin-top: 20px;
+}
+
+.writeIcon {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 50%;
+    color: rgb(129, 125, 125);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.writeImg {
+    margin-left: 150px;
+    width: 70vw;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.writeFormGroup {
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.label{
+    margin-left: 150px;
 }

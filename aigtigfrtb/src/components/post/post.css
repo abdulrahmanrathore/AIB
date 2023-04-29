@@ -19,7 +19,7 @@
     align-items: center;
   }
   
-  .postCat {
+.postCat {
     font-family: "Varela Round", Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 11px;
@@ -28,23 +28,23 @@
     margin-top: 15px;
     margin-right: 10px;
     cursor: pointer;
-  }
+}
   
-  .postTitle {
+.postTitle {
     font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 900;
     margin-top: 15px;
     cursor: pointer;
-  }
+}
   
-  .postDate {
+.postDate {
     font-family: "Lora", serif;
     font-style: italic;
     font-size: 13px;
     font-weight: 400;
     color: #999999;
-  }
+}
   
 .postDesc {
     font-family: "Varela Round", Arial, Helvetica, sans-serif;
@@ -63,4 +63,8 @@
 
 .link{
   text-decoration: none;
+}
+
+.card-img-top{
+  height: 165px;
 }
