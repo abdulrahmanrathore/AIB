@@ -13,10 +13,22 @@ export default function SinglePost(props) {
   const PF = "http://localhost:5000/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
+  const [cat, setCat] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [file, setFile] = useState(null);
 
+
+
+  useEffect(() => {
+    const getCat = async () => {
+      const res = await axios.get("/categories");
+      setCat(res.data)
+      console.log(res.data);
+    }
+    getCat()
+  }, [])
 
   const editorConfig = {
     height: '500px',
@@ -28,6 +40,7 @@ export default function SinglePost(props) {
       const res = await axios.get("/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
+      setSelectedCategory(res.data.categories);
       setDesc(res.data.desc);
     };
     getPost();
@@ -50,6 +63,7 @@ export default function SinglePost(props) {
     const updatedPost = {
       username: user.username,
       title,
+      categories : selectedCategory,
       desc,
     }
     if (file) {
@@ -70,11 +84,11 @@ export default function SinglePost(props) {
   };
 
   return (
-    <div className="singlePost">
-      <div className="singlePostWrapper">
+    <div className="singlePost position-relative">
+      <div className="singlePostWrapper container">
         {updateMode ? (file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
-      )):(post.photo && (
+        )):(post.photo && (
           <img src={PF + post.photo} alt="" className="singlePostImg" />
         ))}
         {updateMode ? (
@@ -85,6 +99,7 @@ export default function SinglePost(props) {
          <input
            type="file"
            id="fileInput"
+           value={file}
            style={{ display: "none" }}
            onChange={(e) => setFile(e.target.files[0])}
          />
@@ -113,17 +128,29 @@ export default function SinglePost(props) {
             )}
           </h1>
         )}
-        <div className="singlePostInfo">
-          <span className="singlePostAuthor">
-            Author:
-            <Link to={`/?user=${post.username}`} className="link">
-              <b> {post.username}</b>
-            </Link>
-          </span>
-          <span className="singlePostDate">
-            {new Date(post.createdAt).toDateString()}
-          </span>
-        </div>
+        {updateMode ? (
+          <div className="writeCat position-absolute bottom-100 start-0">
+            <select className="form-select" value={selectedCategory} onChange={e=>setSelectedCategory(e.target.value)} aria-label="Default select example">
+              <option selected>Select Category</option>
+              {cat.map((c) => (
+                <option value={c.id}>{c.name}</option>
+              ))}
+            </select>
+          </div>
+        ):(
+          <div className="singlePostInfo">
+            <span className="singlePostAuthor">
+              Author:
+              <Link to={`/?user=${post.username}`} className="link">
+                <b> {post.username}</b>
+              </Link>
+            </span>
+            <span className="singlePostDate">
+              {new Date(post.createdAt).toDateString()}
+            </span>
+          </div>
+        )}
+        
         {updateMode ? (
           <div className="writeFormGroup">
             <JoditEditor value={desc} config={editorConfig}  onChange={desc=>setDesc(desc)} />
